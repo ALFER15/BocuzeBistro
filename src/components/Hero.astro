@@ -1,20 +1,21 @@
-<section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-  <div class="absolute inset-0">
+<section id="inicio" class="section-shell section-hero living-texture relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+  <div class="absolute inset-0 scale-105">
     <img 
       src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1950&q=80"
       class="w-full h-full object-cover"
       alt="Bocuze Bistro"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/90"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-[#0d0b09]/95"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(214,162,95,0.2),transparent_46%)]"></div>
   </div>
 
-  <div class="relative z-10 px-6 w-full flex flex-col items-center">
+  <div class="relative z-10 px-6 w-full flex flex-col items-center pt-24 pb-10">
 
-    <span class="inline-block mt-20 mb-6 px-6 py-2 border border-amber-600/50 text-amber-500 text-[10px] md:text-xs tracking-[0.35em] uppercase font-semibold rounded-full bg-black/40 backdrop-blur-sm">
+    <span class="reveal inline-block mb-8 px-6 py-2 border border-amber-400/45 text-amber-200 text-[10px] md:text-xs tracking-[0.35em] uppercase font-semibold rounded-full bg-black/35 backdrop-blur-sm">
       Zibatá, Querétaro
     </span>
 
-    <h1 class="text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-[0.9] tracking-tight">
+    <h1 class="reveal text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-[0.9] tracking-tight text-balance" data-delay="1">
       Bocuze
       <br/>
       <span class="italic text-zinc-300 font-light text-5xl md:text-7xl lg:text-8xl">
@@ -22,14 +23,28 @@
       </span>
     </h1>
 
-    <p class="mt-6 text-base md:text-xl text-zinc-400 font-light max-w-xl mx-auto leading-relaxed">
+    <svg class="reveal mt-10 mb-8 h-8 w-52 text-amber-300/75" data-delay="2" viewBox="0 0 210 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M2 13H82" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <animate attributeName="stroke-dasharray" from="0 82" to="82 0" dur="1.2s" fill="freeze" />
+      </path>
+      <circle cx="105" cy="13" r="3.2" stroke="currentColor" stroke-width="1.2">
+        <animate attributeName="r" values="0;3.2" dur="0.7s" fill="freeze" begin="0.35s" />
+      </circle>
+      <path d="M128 13H208" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <animate attributeName="stroke-dasharray" from="0 82" to="82 0" dur="1.2s" fill="freeze" />
+      </path>
+    </svg>
+
+    <p class="reveal text-base md:text-xl text-zinc-300/90 font-light max-w-2xl mx-auto leading-relaxed" data-delay="2">
       Un bistró contemporáneo en Querétaro. Sabores internacionales y una experiencia pensada para disfrutarse sin prisa.
     </p>
 
-    <div class="mt-8 flex items-center justify-center">
-      <a href="#menu" class="group uppercase tracking-[0.25em] text-sm font-bold text-white hover:text-amber-500 transition-colors flex items-center gap-2">
-        Explorar Menú 
-        <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+    <div class="reveal mt-10 flex flex-wrap items-center justify-center gap-5" data-delay="3">
+      <a href="#menu" class="btn-premium">
+        Explorar Menú
+      </a>
+      <a href="#contacto" class="btn-link">
+        Reservar Mesa
       </a>
     </div>
 
