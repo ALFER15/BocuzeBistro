@@ -7,12 +7,88 @@ const { title = "Bocuze Bistro" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>{title}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[#0F0F0F] text-[#F5F5F5] font-['Inter']">
+  <body class="bg-[#0F0F0F] text-[#F5F5F5]">
+    <div id="loading-screen" class="loading-screen" aria-hidden="true">
+      <div class="flex flex-col items-center gap-4">
+        <div class="loading-mark"></div>
+        <p class="text-[10px] uppercase tracking-[0.45em] text-amber-200/65">Bocuze Bistro</p>
+      </div>
+    </div>
+    <div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
     <slot />
+    <script is:inline>
+      const runPremiumUI = () => {
+        const loadingScreen = document.getElementById("loading-screen");
+        const cursorRing = document.getElementById("cursor-ring");
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const closeLoader = () => {
+          if (!loadingScreen) return;
+          loadingScreen.classList.add("hidden");
+        };
+
+        if (document.readyState === "complete") {
+          requestAnimationFrame(closeLoader);
+        } else {
+          window.addEventListener("load", closeLoader, { once: true });
+        }
+
+        if (!reduceMotion) {
+          const revealItems = document.querySelectorAll(".reveal");
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+          );
+
+          revealItems.forEach((item) => io.observe(item));
+        } else {
+          document.querySelectorAll(".reveal").forEach((item) => item.classList.add("is-visible"));
+        }
+
+        if (cursorRing && window.matchMedia("(pointer: fine)").matches && !window.__premiumCursorBound) {
+          window.__premiumCursorBound = true;
+
+          window.addEventListener("mousemove", (event) => {
+            cursorRing.classList.add("active");
+            cursorRing.style.transform = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
+          });
+        }
+
+        if (cursorRing) {
+          document.querySelectorAll("a, button").forEach((el) => {
+            if (el.dataset.cursorBound === "true") return;
+            el.dataset.cursorBound = "true";
+
+            el.addEventListener("mouseenter", () => {
+              cursorRing.style.width = "34px";
+              cursorRing.style.height = "34px";
+              cursorRing.style.borderColor = "rgba(214, 162, 95, 0.82)";
+            });
+            el.addEventListener("mouseleave", () => {
+              cursorRing.style.width = "22px";
+              cursorRing.style.height = "22px";
+              cursorRing.style.borderColor = "rgba(214, 162, 95, 0.5)";
+            });
+          });
+        }
+      };
+
+      runPremiumUI();
+      document.addEventListener("astro:after-swap", runPremiumUI);
+    </script>
   </body>
 </html>

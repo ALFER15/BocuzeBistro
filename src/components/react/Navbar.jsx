@@ -16,90 +16,73 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-black/80 backdrop-blur-xl py-5 shadow-lg shadow-black/40"
-            : "bg-gradient-to-b from-black/70 to-transparent py-10"
+            ? "bg-[#100d0bcc]/95 backdrop-blur-xl py-4 shadow-[0_14px_42px_rgba(0,0,0,0.45)] border-b border-amber-200/10"
+            : "bg-gradient-to-b from-black/70 to-transparent py-7"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-10 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
 
-          {/* Logo */}
-          <div className="text-3xl md:text-4xl font-serif text-white tracking-[0.4em] uppercase">
-            Bocuze
-            <span className="text-amber-600 ml-1">.</span>
-          </div>
+          <a href="#inicio" className="group flex flex-col leading-none">
+            <span className={`font-serif uppercase tracking-[0.36em] text-2xl md:text-3xl text-[#f5e9d8] transition-all duration-500 ${isScrolled ? "tracking-[0.28em]" : ""}`}>
+              Bocuze
+            </span>
+            <span className="mt-1 text-[9px] uppercase tracking-[0.36em] text-amber-200/75 group-hover:text-amber-100 transition-colors">
+              Bistró Café
+            </span>
+          </a>
 
-          {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-14">
+          <div className="hidden md:flex items-center space-x-11">
 
-            <a href="#experiencia" className="text-sm uppercase tracking-[0.3em] text-zinc-300 hover:text-amber-500 transition-colors">
+            <a href="#experiencia" className="btn-link text-[11px] text-zinc-200/90 hover:text-amber-200">
               Experiencia
             </a>
 
-            <a href="#menu" className="text-sm uppercase tracking-[0.3em] text-zinc-300 hover:text-amber-500 transition-colors">
+            <a href="#menu" className="btn-link text-[11px] text-zinc-200/90 hover:text-amber-200">
               Menú
             </a>
 
-            <a href="#reseñas" className="text-sm uppercase tracking-[0.3em] text-zinc-300 hover:text-amber-500 transition-colors">
+            <a href="#reseñas" className="btn-link text-[11px] text-zinc-200/90 hover:text-amber-200">
               Reseñas
             </a>
 
-            <a href="#ubicacion" className="text-sm uppercase tracking-[0.3em] text-zinc-300 hover:text-amber-500 transition-colors">
+            <a href="#ubicacion" className="btn-link text-[11px] text-zinc-200/90 hover:text-amber-200">
               Ubicación
             </a>
 
-            {/* CTA principal */}
-            <a
-              href="#contacto"
-              className={`
-                ml-8 px-8 py-3 text-xs uppercase tracking-widest
-                transition-all duration-300 ease-out
-                ${
-                  isScrolled
-                    ? "bg-amber-600 text-white shadow-lg shadow-amber-600/30 hover:bg-amber-500 hover:scale-105"
-                    : "border border-amber-500 text-amber-400 hover:bg-amber-600 hover:text-white"
-                }
-              `}
-            >
+            <a href="#contacto" className="btn-premium ml-3">
               Reservar
             </a>
-
           </div>
 
-          {/* Mobile button */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-white transition-transform duration-300"
+            className="md:hidden text-zinc-100 transition-transform duration-300 border border-amber-200/25 p-2.5 rounded-full bg-black/35"
+            aria-label="Abrir menú"
           >
-            {open ? <X size={30} /> : <Menu size={30} />}
+            {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center space-y-10 text-white text-lg uppercase tracking-widest md:hidden transition-all duration-300">
-
-          <a href="#experiencia" onClick={() => setOpen(false)} className="hover:text-amber-500 transition">
+        <div className="fixed inset-0 bg-[#0a0908]/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-9 text-white text-sm uppercase tracking-[0.3em] md:hidden transition-all duration-300">
+          <a href="#experiencia" onClick={() => setOpen(false)} className="btn-link text-zinc-200/85">
             Experiencia
           </a>
 
-          <a href="#menu" onClick={() => setOpen(false)} className="hover:text-amber-500 transition">
+          <a href="#menu" onClick={() => setOpen(false)} className="btn-link text-zinc-200/85">
             Menú
           </a>
 
-          <a href="#reseñas" onClick={() => setOpen(false)} className="hover:text-amber-500 transition">
+          <a href="#reseñas" onClick={() => setOpen(false)} className="btn-link text-zinc-200/85">
             Reseñas
           </a>
 
-          <a href="#ubicacion" onClick={() => setOpen(false)} className="hover:text-amber-500 transition">
+          <a href="#ubicacion" onClick={() => setOpen(false)} className="btn-link text-zinc-200/85">
             Ubicación
           </a>
 
-          <a
-            href="#contacto"
-            onClick={() => setOpen(false)}
-            className="mt-6 px-8 py-3 bg-amber-600 text-white text-sm hover:bg-amber-500 transition"
-          >
+          <a href="#contacto" onClick={() => setOpen(false)} className="btn-premium mt-3">
             Reservar
           </a>
         </div>
