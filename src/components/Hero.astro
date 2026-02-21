@@ -1,45 +1,35 @@
-<section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-
-  <!-- Fondo -->
+<section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
   <div class="absolute inset-0">
     <img 
-      src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1950&q=80"
-      class="w-full h-full object-cover scale-110"
+      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1950&q=80"
+      class="w-full h-full object-cover"
       alt="Bocuze Bistro"
     />
     <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/90"></div>
   </div>
 
-  <!-- Contenido -->
-  <div class="relative z-10 px-6">
+  <div class="relative z-10 px-6 w-full flex flex-col items-center">
 
-    <!-- Badge -->
-    <span class="inline-block mb-8 px-6 py-2 border border-amber-600/50 text-amber-500 text-xs tracking-[0.35em] uppercase font-semibold rounded-full bg-black/40 backdrop-blur-sm">
+    <span class="inline-block mt-20 mb-6 px-6 py-2 border border-amber-600/50 text-amber-500 text-[10px] md:text-xs tracking-[0.35em] uppercase font-semibold rounded-full bg-black/40 backdrop-blur-sm">
       Zibatá, Querétaro
     </span>
 
-    <!-- Título gigante -->
-    <h1 class="text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-[1.05] tracking-tight">
-      Alta Cocina
+    <h1 class="text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-[0.9] tracking-tight">
+      Bocuze
       <br/>
-      <span class="italic text-zinc-300 font-light">
-        Bajo las Estrellas
+      <span class="italic text-zinc-300 font-light text-5xl md:text-7xl lg:text-8xl">
+        Bistró Café
       </span>
     </h1>
 
-    <!-- Descripción más grande -->
-    <p class="mt-10 text-xl md:text-2xl text-zinc-400 font-light max-w-3xl mx-auto leading-relaxed">
-      Una experiencia gastronómica que combina la técnica francesa con ingredientes locales en un ambiente nocturno inigualable.
+    <p class="mt-6 text-base md:text-xl text-zinc-400 font-light max-w-xl mx-auto leading-relaxed">
+      Un bistró contemporáneo en Querétaro. Sabores internacionales y una experiencia pensada para disfrutarse sin prisa.
     </p>
 
-    <!-- Botones -->
-    <div class="mt-14 flex flex-col md:flex-row items-center justify-center gap-8">
-      <button class="bg-amber-700 hover:bg-amber-600 text-white px-12 py-5 uppercase tracking-[0.25em] text-sm font-bold transition-all duration-300 hover:scale-105 shadow-2xl">
-        Reservar Mesa
-      </button>
-
-      <a href="#menu" class="uppercase tracking-[0.25em] text-sm font-bold text-white hover:text-amber-500 transition-colors flex items-center gap-2">
-        Explorar Menú →
+    <div class="mt-8 flex items-center justify-center">
+      <a href="#menu" class="group uppercase tracking-[0.25em] text-sm font-bold text-white hover:text-amber-500 transition-colors flex items-center gap-2">
+        Explorar Menú 
+        <span class="transform group-hover:translate-x-1 transition-transform">→</span>
       </a>
     </div>
 
